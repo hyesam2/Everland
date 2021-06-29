@@ -14,14 +14,16 @@ public class everland {
 		int disabled = 0;
 		int sumTotal = 0;
 		int terminate = 0;
+		int preferential;
 		String ticketSort;
 
-		// ´©Àû
+		// ëˆ„ì 
 		ArrayList<Integer> saveTicket = new ArrayList<Integer>();
 		ArrayList<String> saveTicketSort = new ArrayList<String>();
 		ArrayList<Integer> saveNumOfPeople = new ArrayList<Integer>();
 		ArrayList<Integer> saveTotalPrice = new ArrayList<Integer>();
 		ArrayList<Integer> saveDiscount = new ArrayList<Integer>();
+		ArrayList<Integer> savePreferential = new ArrayList<Integer>();
 		while (true) {
 			saveTicket.clear();
 			saveTicketSort.clear();
@@ -30,9 +32,9 @@ public class everland {
 			saveDiscount.clear();
 
 			do {
-				// ÀÌ¿ë³¯Â¥ String¿¡¼­ int·Î º¯°æ
+				// ì´ìš©ë‚ ì§œ Stringì—ì„œ intë¡œ ë³€ê²½
 				while (true) {
-					System.out.print("ÀÌ¿ë³¯Â¥¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.(yy-mm-dd) ");
+					System.out.print("ì´ìš©ë‚ ì§œë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.(yy-mm-dd) ");
 					String date = sc.next();
 					String yearStr = date.substring(0, 2);
 					year = Integer.parseInt(yearStr);
@@ -41,17 +43,17 @@ public class everland {
 					String dayStr = date.substring(4, 6);
 					day = Integer.parseInt(dayStr);
 					if (year != 21 || month < 6) {
-						System.out.println("´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä.");
+						System.out.println("ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”.");
 					} else if (date.length() < 6) {
-						System.out.println("´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä.");
+						System.out.println("ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”.");
 					} else {
 						break;
 					}
 
 				}
 
-				// ³ªÀÌ È®ÀÎ
-				System.out.print("ÁÖ¹Î¹øÈ£ ¾ÕÀÚ¸®¸¦ ÀÔ·ÂÇÏ¼¼¿ä(6ÀÚ¸®) ");
+				// ë‚˜ì´ í™•ì¸
+				System.out.print("ì£¼ë¯¼ë²ˆí˜¸ ì•ìë¦¬ë¥¼ ì…ë ¥í•˜ì„¸ìš”(6ìë¦¬) ");
 				String IDNum = sc.next();
 				String birthYearStr = IDNum.substring(0, 2);
 				int birthYear = Integer.parseInt(birthYearStr);
@@ -59,19 +61,19 @@ public class everland {
 				int birthMonth = Integer.parseInt(birthMonthStr);
 				String birthDayStr = IDNum.substring(4, 6);
 				int birthDay = Integer.parseInt(birthDayStr);
-				System.out.print("¸î °³¸¦ ÀÔ·ÂÇÏ½Ã°Ú½À´Ï±î? ");
+				System.out.print("ëª‡ ê°œë¥¼ ì…ë ¥í•˜ì‹œê² ìŠµë‹ˆê¹Œ? ");
 				numOfPeople = sc.nextInt();
 				while (true) {
-					System.out.println("¿ì´ë»çÇ×À» ¼±ÅÃÇÏ¼¼¿ä. \n1. ¾øÀ½ \n2. Àå¾ÖÀÎ \n3. ±¹°¡À¯°øÀÚ \n4. ´ÙÀÚ³à \n5. ÀÓ»êºÎ");
+					System.out.println("ìš°ëŒ€ì‚¬í•­ì„ ì„ íƒí•˜ì„¸ìš”. \n1. ì—†ìŒ \n2. ì¥ì• ì¸ \n3. êµ­ê°€ìœ ê³µì \n4. ë‹¤ìë…€ \n5. ì„ì‚°ë¶€");
 					discount = sc.nextInt();
 					if (discount > 5) {
-						System.out.println("´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä.");
+						System.out.println("ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”.");
 					} else {
 						break;
 					}
 				}
 
-				System.out.printf("%d¹øÀ» ¼±ÅÃÇÏ¿´½À´Ï´Ù.\n", discount);
+				System.out.printf("%dë²ˆì„ ì„ íƒí•˜ì˜€ìŠµë‹ˆë‹¤.\n", discount);
 
 				if (birthYear >= year) {
 					if (month > birthMonth || (month == birthMonth && day >= birthDay)) {
@@ -193,33 +195,33 @@ public class everland {
 				}
 
 				if (ticket == 60000) {
-					ticketSort = "AÆ¼ÄÏ ´ëÀÎ/Ã»¼Ò³â";
+					ticketSort = "Aí‹°ì¼“ ëŒ€ì¸/ì²­ì†Œë…„";
 					disabled = 36000;
 					pregnant = 51000;
 				} else if (ticket == 48000) {
-					ticketSort = "AÆ¼ÄÏ ¼ÒÀÎ/°æ·Î";
+					ticketSort = "Aí‹°ì¼“ ì†Œì¸/ê²½ë¡œ";
 					disabled = 28000;
 				} else if (ticket == 56000) {
-					ticketSort = "BÆ¼ÄÏ ´ëÀÎ/Ã»¼Ò³â";
+					ticketSort = "Bí‹°ì¼“ ëŒ€ì¸/ì²­ì†Œë…„";
 					pregnant = 47000;
 					disabled = 33000;
 				} else if (ticket == 44000) {
-					ticketSort = "BÆ¼ÄÏ ¼ÒÀÎ/°æ·Î";
+					ticketSort = "Bí‹°ì¼“ ì†Œì¸/ê²½ë¡œ";
 					disabled = 26000;
 				} else if (ticket == 50000) {
-					ticketSort = "CÆ¼ÄÏ ´ëÀÎ/Ã»¼Ò³â";
+					ticketSort = "Cí‹°ì¼“ ëŒ€ì¸/ì²­ì†Œë…„";
 					pregnant = 42000;
 					disabled = 30000;
 				} else {
-					ticketSort = "CÆ¼ÄÏ ¼ÒÀÎ/°æ·Î";
+					ticketSort = "Cí‹°ì¼“ ì†Œì¸/ê²½ë¡œ";
 					disabled = 24000;
 				}
-				// totalPrice °è»ê
+				// totalPrice ê³„ì‚°
 
 				if (discount == 1) {
 					totalPrice = numOfPeople * ticket;
 				} else if (discount == 2) {
-					System.out.print("½ÉÇÑ Á¤µµ¸¦ ÀÔ·ÂÇÏ¼¼¿ä. ");
+					System.out.print("ì‹¬í•œ ì •ë„ë¥¼ ì…ë ¥í•˜ì„¸ìš”. ");
 					int severity = sc.nextInt();
 					if (severity >= 50) {
 						if (numOfPeople >= 2) {
@@ -244,28 +246,43 @@ public class everland {
 					} else
 						totalPrice = pregnant;
 				}
+
+				if (discount == 1) {
+					preferential = 0;
+				} else if (discount == 2) {
+					preferential = 50;
+				} else if (discount == 3) {
+					preferential = 50;
+				} else if (discount == 4) {
+					preferential = 20;
+				} else {
+					preferential = 50;
+				}
 				saveTicket.add(ticket);
 				saveTicketSort.add(ticketSort);
 				saveNumOfPeople.add(numOfPeople);
 				saveTotalPrice.add(totalPrice);
 				saveDiscount.add(discount);
-				System.out.print("Ãß°¡ ÀÔ·ÂÇÏ½Ã°Ú½À´Ï±î? (1. Ãß°¡, 2. Á¾·á) : ");
+				savePreferential.add(preferential);
+				System.out.print("ì¶”ê°€ ì…ë ¥í•˜ì‹œê² ìŠµë‹ˆê¹Œ? (1. ì¶”ê°€, 2. ì¢…ë£Œ) : ");
 				addMore = sc.nextInt();
 			} while (addMore == 1);
-			System.out.println("================ ¿¡¹ö·£µå ================");
+			System.out.println("================ ì—ë²„ëœë“œ ================");
 			for (int index = 0; index < saveTicketSort.size(); index++) {
-				System.out.printf("%s X %d %d * %d¹ø ¿ì´ë Àû¿ë\n", saveTicketSort.get(index), saveNumOfPeople.get(index),
-						saveTotalPrice.get(index), saveDiscount.get(index));
+				System.out.printf("%s %dì› X %d * %dë²ˆ ìš°ëŒ€ ì ìš©\n", saveTicketSort.get(index), saveTicket.get(index),
+						saveNumOfPeople.get(index), saveDiscount.get(index));
+				System.out.printf("-> %dë²ˆ ìš°ëŒ€ %d í¼ì„¼íŠ¸ ì ìš© -> %dì›\n", saveDiscount.get(index), savePreferential.get(index),
+						saveTotalPrice.get(index));
 				sumTotal += saveTotalPrice.get(index);
 			}
 			System.out.println("========================================");
-			System.out.printf("ÃÑ ±İ¾×Àº %dÀÔ´Ï´Ù.\n", sumTotal);
+			System.out.printf("ì´ ê¸ˆì•¡ì€ %dì…ë‹ˆë‹¤.\n", sumTotal);
 
-			System.out.print("±¸¸Å¸¦ ³¡³»½Ã°Ú½À´Ï±î? (0 ´©¸£¸é Á¾·á) ");
+			System.out.print("êµ¬ë§¤ë¥¼ ëë‚´ì‹œê² ìŠµë‹ˆê¹Œ? (0 ëˆ„ë¥´ë©´ ì¢…ë£Œ) ");
 			terminate = sc.nextInt();
 			if (terminate != 0) {
 			} else {
-				System.out.println("±¸¸Å°¡ Á¾·áµÇ¾ú½À´Ï´Ù.");
+				System.out.println("êµ¬ë§¤ê°€ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 				break;
 			}
 		}
