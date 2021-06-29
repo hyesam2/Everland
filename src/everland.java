@@ -17,11 +17,6 @@ public class everland {
 		String ticketSort;
 
 		// 누적
-		// int[] saveTicket = new int[100];
-		// String[] saveTicketSort = new String[100];
-		// int[] saveNumOfPeople = new int[100];
-		// int[] saveTotalPrice = new int[100];
-		// int[] saveDiscount = new int[100];
 		ArrayList<Integer> saveTicket = new ArrayList<Integer>();
 		ArrayList<String> saveTicketSort = new ArrayList<String>();
 		ArrayList<Integer> saveNumOfPeople = new ArrayList<Integer>();
@@ -257,9 +252,7 @@ public class everland {
 				System.out.print("추가 입력하시겠습니까? (1. 추가, 2. 종료) : ");
 				addMore = sc.nextInt();
 			} while (addMore == 1);
-
 			System.out.println("================ 에버랜드 ================");
-
 			for (int index = 0; index < saveTicketSort.size(); index++) {
 				System.out.printf("%s X %d %d * %d번 우대 적용\n", saveTicketSort.get(index), saveNumOfPeople.get(index),
 						saveTotalPrice.get(index), saveDiscount.get(index));
